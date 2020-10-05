@@ -1,8 +1,8 @@
 public class Cell {
     private boolean isAlive;
-    private String toDo;
+    private boolean toDo;
 
-    public Cell(boolean isAlive, String toDo) {
+    public Cell(boolean isAlive, boolean toDo) {
         this.isAlive = isAlive;
         this.toDo = toDo;
     }
@@ -15,11 +15,23 @@ public class Cell {
         isAlive = alive;
     }
 
-    public String getToDo() {
+    public void doToDo() {
+        isAlive = toDo;
+    }
+
+    public boolean getToDo() {
         return toDo;
     }
 
-    public void setToDo(String toDo) {
+    public void setToDo(boolean toDo) {
         this.toDo = toDo;
+    }
+
+    @Override
+    public String toString() {
+        return "Cell{" +
+                "isAlive=" + isAlive +
+                ", toDo='" + toDo + '\'' +
+                '}';
     }
 }
