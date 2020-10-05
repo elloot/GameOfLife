@@ -28,12 +28,12 @@ public class Grid {
     }
 
     private void setCellToDo(int i, boolean toDo) {
-        cells[i].setToDo(toDo);
+        cells[i].willSurvive(toDo);
     }
 
     private void doToDo() {
         for (int i = 0; i < this.WIDTH*this.HEIGHT; i++) {
-            cells[i].doToDo();
+            cells[i].execSurvival();
         }
     }
 

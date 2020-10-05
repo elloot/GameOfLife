@@ -1,37 +1,33 @@
 public class Cell {
     private boolean isAlive;
-    private boolean toDo;
+    private boolean willSurvive;
 
-    public Cell(boolean isAlive, boolean toDo) {
+    public Cell(boolean isAlive, boolean willSurvive) {
         this.isAlive = isAlive;
-        this.toDo = toDo;
+        this.willSurvive = willSurvive;
     }
 
     public boolean isAlive() {
         return isAlive;
     }
 
-    public void setAlive(boolean alive) {
-        isAlive = alive;
+    public void execSurvival() {
+        isAlive = willSurvive;
     }
 
-    public void doToDo() {
-        isAlive = toDo;
-    }
+    /*public boolean willSurvive() {
+        return willSurvive;
+    }*/
 
-    public boolean getToDo() {
-        return toDo;
-    }
-
-    public void setToDo(boolean toDo) {
-        this.toDo = toDo;
+    public void willSurvive(boolean willSurvive) {
+        this.willSurvive = willSurvive;
     }
 
     @Override
     public String toString() {
         return "Cell{" +
                 "isAlive=" + isAlive +
-                ", toDo='" + toDo + '\'' +
+                ", toDo='" + willSurvive + '\'' +
                 '}';
     }
 }
