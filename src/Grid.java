@@ -21,7 +21,7 @@ public class Grid {
     }
 
     public Cell[] getNeighbours(int x, int y) {
-        Cell[] neighbours = new Cell[8];
+        Cell[] neighbours = new Cell[9];
         /*cells[(y - 1) * this.WIDTH + (x - 1)];
         cells[(y - 1) * this.WIDTH + x];
         cells[(y - 1) * this.WIDTH + (x + 1)];*/
@@ -31,8 +31,8 @@ public class Grid {
         // doesn't work for edge cases
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
-                if (!(i == 0 && j == 0))
-                neighbours[index] = cells[((y + i) * this.WIDTH) + (x + j)];
+                if (!(i == 0 && j == 0) && (y + i >= 0 && x + j >= 0) && (y + i < this.HEIGHT && x + j < this.WIDTH))
+                    neighbours[index] = cells[((y + i) * this.WIDTH) + (x + j)];
                 index++;
             }
         }
@@ -58,7 +58,7 @@ public class Grid {
         cells[y * this.WIDTH + x].setSurvival(willSurvive);
     }
 
-    private void execSurvival() {
+    public void execSurvival() {
         for (int i = 0; i < this.WIDTH*this.HEIGHT; i++) {
             cells[i].execSurvival();
         }

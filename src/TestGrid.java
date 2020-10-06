@@ -7,5 +7,7 @@ public class TestGrid {
             }
             System.out.println();
         }
+
+        grid.getNeighbours(0, 0);
     }
 }

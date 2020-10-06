@@ -1,8 +1,25 @@
 public class Evolutioner {
     private final Grid grid;
 
-    public Evolutioner(Grid grid) {
-        this.grid = grid;
+    public Evolutioner(int width, int height) {
+        this.grid = new Grid(width, height);
+    }
+
+    public void step() {
+        shouldSurvive();
+        updateCells();
+    }
+
+    private void updateCells() {
+        for (int i = 0; i < grid.getHeight(); i++) {
+            for (int j = 0; j < grid.getWidth(); j++) {
+                grid.execSurvival();
+            }
+        }
+    }
+
+    public Grid getGrid() {
+        return grid;
     }
 
     private void shouldSurvive() {
@@ -25,7 +42,7 @@ public class Evolutioner {
     private int numLiveNeighbours(Cell[] neighbours) {
         int liveNeighbours = 0;
         for (Cell neighbour : neighbours) {
-            if (neighbour.isAlive())
+            if (neighbour != null && neighbour.isAlive())
                 liveNeighbours++;
         }
 
