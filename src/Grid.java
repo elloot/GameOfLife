@@ -22,7 +22,7 @@ public class Grid {
 
     private void populate() {
         for (int i = 0; i < this.WIDTH * this.HEIGHT; i++) {
-            // Should toDo be true from start?
+            // Should willSurvive be true from start?
             cells[i] = new Cell(Math.random() > this.WEIGHT, true);
         }
     }
