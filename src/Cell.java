@@ -15,11 +15,7 @@ public class Cell {
         isAlive = willSurvive;
     }
 
-    /*public boolean willSurvive() {
-        return willSurvive;
-    }*/
-
-    public void willSurvive(boolean willSurvive) {
+    public void setSurvival(boolean willSurvive) {
         this.willSurvive = willSurvive;
     }
 

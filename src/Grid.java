@@ -20,6 +20,32 @@ public class Grid {
         this.populate();
     }
 
+    public Cell[] getNeighbours(int x, int y) {
+        Cell[] neighbours = new Cell[8];
+        /*cells[(y - 1) * this.WIDTH + (x - 1)];
+        cells[(y - 1) * this.WIDTH + x];
+        cells[(y - 1) * this.WIDTH + (x + 1)];*/
+
+        int index = 0;
+
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if (!(i == 0 && j == 0))
+                neighbours[index] = cells[((y + i) * this.WIDTH) + (x + j)];
+                index++;
+            }
+        }
+
+        return neighbours;
+
+        /*cells[y, (x - 1)];
+        cells[y, (x + 1)];
+
+        cells[(y + 1) * this.WIDTH + (x - 1)];
+        cells[(y + 1) * this.WIDTH + x];
+        cells[(y + 1) * this.WIDTH + (x + 1)];*/
+    }
+
     private void populate() {
         for (int i = 0; i < this.WIDTH * this.HEIGHT; i++) {
             // Should willSurvive be true from start?
@@ -27,22 +53,22 @@ public class Grid {
         }
     }
 
-    private void setCellToDo(int i, boolean toDo) {
-        cells[i].willSurvive(toDo);
+    public void setCellSurvival(int y, int x, boolean willSurvive) {
+        cells[y * this.WIDTH + x].setSurvival(willSurvive);
     }
 
-    private void doToDo() {
+    private void execSurvival() {
         for (int i = 0; i < this.WIDTH*this.HEIGHT; i++) {
             cells[i].execSurvival();
         }
     }
 
-    private boolean cellIsAlive(int i) {
+    /*private boolean cellIsAlive(int i) {
         return cells[i].isAlive();
-    }
+    }*/
 
-    public Cell getCell(int i) {
-        return cells[i];
+    public Cell getCell(int y, int x) {
+        return cells[y * this.WIDTH + x];
     }
 
     public int getWidth() {
