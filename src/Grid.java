@@ -23,15 +23,13 @@ public class Grid {
 
     public Cell[] getNeighbours(int x, int y) {
         Cell[] neighbours = new Cell[9];
-        /*cells[(y - 1) * this.WIDTH + (x - 1)];
-        cells[(y - 1) * this.WIDTH + x];
-        cells[(y - 1) * this.WIDTH + (x + 1)];*/
 
         int index = 0;
 
-        // doesn't work for edge cases
+        // adds each neighbour of the current cell to an array
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
+                // should probably move the check to see if a supposed neighbour actually exists to a separate function
                 if (!(i == 0 && j == 0) && (y + i >= 0 && x + j >= 0) && (y + i < this.HEIGHT && x + j < this.WIDTH))
                     neighbours[index] = cells[((y + i) * this.WIDTH) + (x + j)];
                 index++;
@@ -39,18 +37,10 @@ public class Grid {
         }
 
         return neighbours;
-
-        /*cells[y, (x - 1)];
-        cells[y, (x + 1)];
-
-        cells[(y + 1) * this.WIDTH + (x - 1)];
-        cells[(y + 1) * this.WIDTH + x];
-        cells[(y + 1) * this.WIDTH + (x + 1)];*/
     }
 
     private void populate() {
         for (int i = 0; i < this.WIDTH * this.HEIGHT; i++) {
-            // Should willSurvive be true from start?
             cells[i] = new Cell(Math.random() > this.WEIGHT, true);
         }
     }
@@ -65,12 +55,8 @@ public class Grid {
         }
     }
 
-    /*private boolean cellIsAlive(int i) {
-        return cells[i].isAlive();
-    }*/
-
     public Cell getCell(int x, int y) {
-        return cells[y * this.WIDTH + x];
+        return cells[(y * this.WIDTH) + x];
     }
 
     public int getWidth() {
