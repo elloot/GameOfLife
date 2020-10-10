@@ -18,7 +18,7 @@ public class GameRunner extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
     private int fps = 60;
-    private int ups = 30;
+    private int ups = 20;
     private int scale = 4;
 
     public GameRunner(int w, int h) {
