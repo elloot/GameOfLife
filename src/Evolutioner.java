@@ -31,6 +31,7 @@ public class Evolutioner {
 
                 Cell currentCell = grid.getCell(x, y);
 
+                // rules for deciding a cells survival
                 if (currentCell.isAlive()) {
                     if (liveNeighbours < 2) {
                         grid.setCellSurvival(x, y, false);
