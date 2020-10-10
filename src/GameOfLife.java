@@ -8,7 +8,7 @@ public class GameOfLife {
     public void render(int[] pixels) {
         for (int i = 0; i < evolutioner.getGrid().getHeight(); i++) {
             for (int j = 0; j < evolutioner.getGrid().getWidth(); j++) {
-                pixels[i * evolutioner.getGrid().getWidth() + j] = evolutioner.getGrid().getCell(i, j).isAlive() ? 0x000000 : 0xFFFFFF;
+                pixels[i * evolutioner.getGrid().getWidth() + j] = evolutioner.getGrid().getCell(i, j).isAlive() ? 0xFFFFFF : 0x000000;
             }
         }
     }
