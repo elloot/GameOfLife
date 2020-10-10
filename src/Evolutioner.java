@@ -11,11 +11,12 @@ public class Evolutioner {
     }
 
     private void updateCells() {
-        for (int i = 0; i < grid.getHeight(); i++) {
+        /*for (int i = 0; i < grid.getHeight(); i++) {
             for (int j = 0; j < grid.getWidth(); j++) {
                 grid.execSurvival();
             }
-        }
+        }*/
+        grid.execSurvival();
     }
 
     public Grid getGrid() {
@@ -23,18 +24,32 @@ public class Evolutioner {
     }
 
     private void shouldSurvive() {
-        for (int i = 0; i < grid.getHeight(); i++) {
-            for (int j = 0; j < grid.getWidth(); j++) {
-                Cell[] neighbours = grid.getNeighbours(i, j);
+        for (int y = 0; y < grid.getHeight(); y++) {
+            for (int x = 0; x < grid.getWidth(); x++) {
+                Cell[] neighbours = grid.getNeighbours(x, y);
                 int liveNeighbours = numLiveNeighbours(neighbours);
 
-                if (liveNeighbours == 3) {
+                Cell currentCell = grid.getCell(x, y);
+
+                if (currentCell.isAlive()) {
+                    if (liveNeighbours < 2) {
+                        grid.setCellSurvival(x, y, false);
+                    } else if ((liveNeighbours == 2 || liveNeighbours == 3)) {
+                        grid.setCellSurvival(x, y, true);
+                    } else if (liveNeighbours > 3) {
+                        grid.setCellSurvival(x, y, false);
+                    }
+                } else if (liveNeighbours == 3) {
+                    grid.setCellSurvival(x, y, true);
+                }
+
+                /*if (liveNeighbours == 3) {
                     grid.setCellSurvival(i, j, true);
                 } else if (grid.getCell(i, j).isAlive() && liveNeighbours == 2) {
                     grid.setCellSurvival(i, j, true);
                 } else {
                     grid.setCellSurvival(i, j, grid.getCell(i, j).isAlive());
-                }
+                }*/
             }
         }
     }
