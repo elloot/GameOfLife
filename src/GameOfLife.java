@@ -6,9 +6,9 @@ public class GameOfLife {
     }
 
     public void render(int[] pixels) {
-        for (int i = 0; i < evolutioner.getGrid().getHeight(); i++) {
-            for (int j = 0; j < evolutioner.getGrid().getWidth(); j++) {
-                pixels[i * evolutioner.getGrid().getWidth() + j] = evolutioner.getGrid().getCell(i, j).isAlive() ? 0xFFFFFF : 0x000000;
+        for (int y = 0; y < evolutioner.getGrid().getHeight(); y++) {
+            for (int x = 0; x < evolutioner.getGrid().getWidth(); x++) {
+                pixels[y * evolutioner.getGrid().getWidth() + x] = evolutioner.getGrid().getCell(x, y).isAlive() ? 0xFFFFFF : 0x000000;
             }
         }
     }
