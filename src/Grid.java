@@ -3,12 +3,13 @@ public class Grid {
     private final int WIDTH;
     private final int HEIGHT;
     private final double WEIGHT;
+    private final double DEFAULT_WEIGHT = 0.5;
 
     public Grid(int width, int height, double weight) {
         this.WIDTH = width;
         this.HEIGHT = height;
         this.cells = new Cell[width*height];
-        this.WEIGHT = weight > 0 && weight < 1 ? weight : 0.8;
+        this.WEIGHT = weight > 0 && weight < 1 ? weight : DEFAULT_WEIGHT;
         this.populate();
     }
 
@@ -16,7 +17,7 @@ public class Grid {
         this.WIDTH = width;
         this.HEIGHT = height;
         this.cells = new Cell[width*height];
-        this.WEIGHT = 0.8;
+        this.WEIGHT = DEFAULT_WEIGHT;
         this.populate();
     }
 
