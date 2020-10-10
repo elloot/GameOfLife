@@ -54,7 +54,7 @@ public class Grid {
         }
     }
 
-    public void setCellSurvival(int y, int x, boolean willSurvive) {
+    public void setCellSurvival(int x, int y, boolean willSurvive) {
         cells[y * this.WIDTH + x].setSurvival(willSurvive);
     }
 
@@ -68,7 +68,7 @@ public class Grid {
         return cells[i].isAlive();
     }*/
 
-    public Cell getCell(int y, int x) {
+    public Cell getCell(int x, int y) {
         return cells[y * this.WIDTH + x];
     }
 
