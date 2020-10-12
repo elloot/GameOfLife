@@ -65,11 +65,7 @@ public class GameRunner extends Canvas implements Runnable {
         double upsInterval = 1000000000.0 / ups;
         double deltaRender = 0;
         double deltaUpdate = 0;
-        int frames = 0;
-        int updates = 0;
-        long iterations = 1;
         long lastTime = System.nanoTime();
-        long timer = System.currentTimeMillis();
 
         while (running) {
             long now = System.nanoTime();
@@ -80,14 +76,11 @@ public class GameRunner extends Canvas implements Runnable {
             while(deltaUpdate >= 1) {
                 game.update();
                 game.render(pixels);
-                updates++;
                 deltaUpdate--;
-                iterations++;
             }
 
             while(deltaRender >= 1) {
                 draw();
-                frames++;
                 deltaRender--;
             }
         }
