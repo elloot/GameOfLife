@@ -90,13 +90,6 @@ public class GameRunner extends Canvas implements Runnable {
                 frames++;
                 deltaRender--;
             }
-
-            /*if(System.currentTimeMillis() - timer >= 100) {
-                timer += 100;
-                frame.setTitle(game.getTitle() + "  |  " + updates + " ups, " + frames + " fps | Generation # " + iterations);
-                frames = 0;
-                updates = 0;
-            }*/
         }
         stop();
     }
