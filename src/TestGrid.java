@@ -8,6 +8,6 @@ public class TestGrid {
             System.out.println();
         }
 
-        grid.getNeighbours(0, 0);
+        grid.getCellNeighbours(0, 0);
     }
 }

@@ -21,7 +21,7 @@ public class Grid {
         this.populate();
     }
 
-    public Cell[] getNeighbours(int x, int y) {
+    public Cell[] getCellNeighbours(int x, int y) {
         Cell[] neighbours = new Cell[9];
 
         int index = 0;
