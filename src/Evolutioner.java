@@ -17,10 +17,9 @@ public class Evolutioner {
     private void shouldSurvive() {
         for (int y = 0; y < grid.getHeight(); y++) {
             for (int x = 0; x < grid.getWidth(); x++) {
-                Cell[] neighbours = grid.getNeighbours(x, y);
-                int liveNeighbours = numLiveNeighbours(neighbours);
-
                 Cell currentCell = grid.getCell(x, y);
+                Cell[] neighbours = grid.getCellNeighbours(x, y);
+                int liveNeighbours = countLiveNeighbours(neighbours);
 
                 // rules for deciding a cells survival
                 if (currentCell.isAlive()) {
@@ -34,7 +33,7 @@ public class Evolutioner {
         }
     }
 
-    private int numLiveNeighbours(Cell[] neighbours) {
+    private int countLiveNeighbours(Cell[] neighbours) {
         int liveNeighbours = 0;
         for (Cell neighbour : neighbours) {
             if (neighbour != null && neighbour.isAlive())
