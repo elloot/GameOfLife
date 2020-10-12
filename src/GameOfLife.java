@@ -1,14 +1,16 @@
 public class GameOfLife {
     Evolutioner evolutioner;
+    Grid grid;
 
     public GameOfLife(int width, int height) {
-        evolutioner = new Evolutioner(width, height);
+        grid = new Grid(width, height);
+        evolutioner = new Evolutioner(grid);
     }
 
     public void render(int[] pixels) {
-        for (int y = 0; y < evolutioner.getGrid().getHeight(); y++) {
-            for (int x = 0; x < evolutioner.getGrid().getWidth(); x++) {
-                pixels[y * evolutioner.getGrid().getWidth() + x] = evolutioner.getGrid().getCell(x, y).isAlive() ? 0xFFFFFF : 0x000000;
+        for (int y = 0; y < grid.getHeight(); y++) {
+            for (int x = 0; x < grid.getWidth(); x++) {
+                pixels[y * grid.getWidth() + x] = grid.getCell(x, y).isAlive() ? 0xFFFFFF : 0x000000;
             }
         }
     }

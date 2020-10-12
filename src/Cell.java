@@ -11,7 +11,7 @@ public class Cell {
         return isAlive;
     }
 
-    public void execSurvival() {
+    public void update() {
         isAlive = willSurvive;
     }
 

@@ -49,9 +49,9 @@ public class Grid {
         cells[y * this.WIDTH + x].setSurvival(willSurvive);
     }
 
-    public void execSurvival() {
+    public void updateCells() {
         for (int i = 0; i < this.WIDTH*this.HEIGHT; i++) {
-            cells[i].execSurvival();
+            cells[i].update();
         }
     }
 
