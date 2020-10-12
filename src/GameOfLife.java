@@ -1,6 +1,6 @@
 public class GameOfLife {
-    Evolutioner evolutioner;
-    Grid grid;
+    private final Evolutioner evolutioner;
+    private final Grid grid;
 
     public GameOfLife(int width, int height) {
         grid = new Grid(width, height);
