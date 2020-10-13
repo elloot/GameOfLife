@@ -2,9 +2,8 @@ public class Cell {
     private boolean isAlive;
     private boolean willSurvive;
 
-    public Cell(boolean isAlive, boolean willSurvive) {
+    public Cell(boolean isAlive) {
         this.isAlive = isAlive;
-        this.willSurvive = willSurvive;
     }
 
     public boolean isAlive() {
